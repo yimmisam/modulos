@@ -1,0 +1,50 @@
+<script id="widget_loop_producto" type="x-jquery-tmpl">
+    {{each datos_Catalogo}}
+      {{tmpl($value) render_item() }}
+    {{/each}}
+ 
+</script>
+<script id="item_carrusel" type="x-jquery-tmpl">
+  <div class="item">
+                  <div class="cont_global_row">
+                    <figure class="card card-product-grid" >
+                      <div class="img-wrap" >
+                        <span class="badge badge-danger d-none">  </span>
+                        <span class="badge badge-danger tag_descuento {{if precio_venta_minima == precio_oferta_maxima}} d-none hidedesc {{else}} d-block {{/if}} "> 
+
+                        ${num_porcent= (parseFloat(precio_oferta_maxima) / parseFloat(precio_venta_minima) * 100 - parseFloat(100)).toFixed(0)}
+                        ${num_porcent.toFixed(0)}%
+                        
+                      </span>
+
+                        <a href="${url_producto}" class="" ><img class="imgProduct" src="${item_url}" ></a>
+                        <a class="btn-overlay btn_verdetalle" data-value="${sku_padre}" data-idprd="${url_producto.split(",")[1]}" >Vista previa</a>
+                      </div>
+                      <figcaption class="info-wrap" >
+                        <div class="" >
+                           <a class="title" href="${url_producto}">${item_title}</a>
+                          <div class="price-wrap mt-2" >
+
+                            <del class="price-old {{if precio_venta_minima == precio_oferta_maxima}} d-none hidedesc{{else}} showdesc d-block {{/if}}">
+                              <span class="simbol_moneda">S/ </span> ${precio_venta_minima}
+                            </del>
+                           
+                            <span class="price">
+                              <span  class="simbol_moneda" >S/</span> ${precio_oferta_maxima}
+                             </span>
+
+                            <span class="price_off"> </span>
+
+                          </div>
+                        </div>
+                        <a href="#" class="btn btn-block btn-primary d-none hidden" >Agregar al carrito</a>
+                      </figcaption>
+                    </figure>
+                  </div>
+  </div>
+</script>
+<script type="text/javascript">
+  function render_item() {
+    return '#item_carrusel';
+  }
+</script>
