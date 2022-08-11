@@ -1,0 +1,75 @@
+ <div class="modal fade" id="detalleProducto1">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body"> 
+        <div class="row contenido_prd">
+            <div class="col-md-2 img_thumbs_prd"></div>
+
+            <div class="col-md-6 img_prdh">
+                
+            </div>
+            <div class="col-md-4 data_prdh">
+                
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="staticBackdropLabel">HA SIDO AGREGADO A TU CARRO</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-3 col-sm-3 col-md-4">
+            <img id="product-image-modal" src="" width="80" height="80" class="img-responsive" alt="">
+          </div>
+          <div class="col-9 col-sm-9 col-md-8">
+              <strong id="spnSummItemDet" id="product-title-modal"></strong>
+              <p>
+                <span id="nombre_producto"></span>
+              </p>
+              <div id="sku_prd">
+                  <span>SKU:</span>
+                  <i id="product-sku-modal"></i>
+              </div>
+              <div class="cant_shpcart">
+                  <span>Cantidad:</span>
+                  <span id="product-quantity-modal"></span>
+              </div>
+              <div class="row col-md-12">
+                <span id="product-modal-variation-title-1"></span>
+                <span id="product-modal-variation-value-1"></span>
+              </div>
+              <div class="row col-md-12">
+                <span id="product-modal-variation-title-2"></span>
+                <span id="product-modal-variation-value-2"></span>
+              </div>
+              <div class="row col-md-12">
+                <span id="product-modal-variation-title-3"></span>
+                <span id="product-modal-variation-value-3"></span>
+              </div>
+              <div class="subtotal_prd"><b><span>Subtotal:</span></b> <b>$ <span id="product-subtotal-modal"></span></b></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Seguir comprando</button>
+        <a href="/process/shopcart"><button type="button" class="btn btn-primary" id="product-purcharse-modal" name="[[PRODUCT_SKU]]">Ir a pagar <i class="fas fa-chevron-right"></i></button></a>
+      </div>
+    </div>
+  </div>
+</div>
