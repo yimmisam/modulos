@@ -1,10 +1,11 @@
 //Custom Widget
 
-var list_domains= $.cookie('account_login_domain_default'); 
 
-   
+var list_domains  = window.location.hostname.replace("www.","");
+
+
 function ejecuta_widgets_productos() {
-	 $(".wdgtProducto.carrusel").each(function () {
+ $(".wdgtProducto.carrusel").each(function () {
 var iDgenerarPro=$(this).attr('id');
 var dataSearch=$(this).attr('data-tag-wdgt');
 var cantSlides=$(this).attr('data-cant-pro');
@@ -24,20 +25,20 @@ var tope=$(this).attr('data-limit-pro');
 grid_loop_productos(iDgenerarPro,dataSearch,cantSlides,tope);
 
 });
+
 }
 
 
 function carrusel_loop_productos(iDgenerarPro,dataSearch,cantSlides,tope) {
 
- $('.mod_catalogo').html('');
-  $('.owl-carousel').html('');
+
     $.get("https://api-inventario.samishop.pe/datoscatalogo/"+list_domains+"/widget/"+dataSearch+"/tope/"+tope, function (response) {
                data =  response['obj'][0];
                load_template(data);
     },"json");
             
    function load_template(data) {
-         $.get('https://storage.googleapis.com/sspe-appv20-resources/sami3.samishop.pe/module/widget_producto/_wdgtpro.tpl.htm?v=2', function(templates) {
+         $.get('https://storage.googleapis.com/sspe-appv20-resources/'+list_domains+'/modulos/widget_producto/_wdgtpro.tpl.htm?v=14', function(templates) {
          $('body').append(templates);
          $('#widget_loop_producto').tmpl(data).appendTo('#'+iDgenerarPro+' .owl-carousel');
          excute_carrusel_dom(cantSlides);
@@ -49,8 +50,6 @@ function carrusel_loop_productos(iDgenerarPro,dataSearch,cantSlides,tope) {
 
 function grid_loop_productos(iDgenerarPro,dataSearch,cantSlides,tope) {
 
- $('.mod_catalogo').html('');
-  $('.owl-carousel').html('');
 
     $.get("https://api-inventario.samishop.pe/datoscatalogo/"+list_domains+"/widget/"+dataSearch+"/tope/"+tope, function (response) {
                data =  response['obj'][0];
@@ -58,7 +57,7 @@ function grid_loop_productos(iDgenerarPro,dataSearch,cantSlides,tope) {
     },"json");
             
    function load_template(data) {
-         $.get('https://storage.googleapis.com/sspe-appv20-resources/sami3.samishop.pe/module/widget_producto/_wdgtpro.tpl.htm?v=2', function(templates) {
+         $.get('https://storage.googleapis.com/sspe-appv20-resources/'+list_domains+'/modulos/widget_producto/_wdgtpro.tpl.htm?v=14', function(templates) {
          $('body').append(templates);
          $('#widget_loop_producto').tmpl(data).appendTo('#'+iDgenerarPro+' .mod_catalogo');
 
@@ -112,15 +111,15 @@ function excute_grid_dom(iDgenerarPro,cantSlides){
 }
 
 
+
 $(document).ready(function() {
+    console.log( "ready!" );
 
 setTimeout(function() { 
     
 ejecuta_widgets_productos();
 
 
-    }, 1200);
+    }, 400);
 
 });
-
-
