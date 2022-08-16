@@ -1,0 +1,36 @@
+<script id="widget_loop_blog" type="x-jquery-tmpl">
+    {{each resultado}}
+      {{tmpl($value) render_item_blog() }}
+    {{/each}}
+ 
+</script>
+<script id="item_carrusel_blog" type="x-jquery-tmpl">
+  <div class="item blog">
+                  <div class="cont_blog">
+                    <figure class="card" >
+                      <div class="img-wrap" >
+                        <a href="${url_destino}" class="" ><img loading="lazy" class="" src="${url_imagen}" >
+
+
+
+
+
+                        </a>
+                      </div>
+                      <figcaption class="info-wrap" >
+                        <div class="tag_post">
+                           <a class="" href="${url_destino}">${titulo}</a>
+                           <p class="resumen_postblog">${resumen}</p>
+                      
+                        </div>
+                        <a href="${url_destino}" class="btn btn-block " >Leer más...</a>
+                      </figcaption>
+                    </figure>
+                  </div>
+  </div>
+</script>
+<script type="text/javascript" id="scriptblog_item">
+  function render_item_blog() {
+    return '#item_carrusel_blog';
+  }
+</script>
