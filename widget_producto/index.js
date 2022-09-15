@@ -41,7 +41,7 @@ function carrusel_loop_productos(iDgenerarPro,dataSearch,cantSlides,tope) {
          $.get('https://storage.googleapis.com/sspe-appv20-resources/'+list_domains+'/modulos/widget_producto/_wdgtpro.tpl.htm?v=14', function(templates) {
          $('body').append(templates);
          $('#widget_loop_producto').tmpl(data).appendTo('#'+iDgenerarPro+' .owl-carousel');
-         excute_carrusel_dom(cantSlides);
+         excute_carrusel_dom(iDgenerarPro,cantSlides);
       });
    }
 
@@ -70,10 +70,9 @@ function grid_loop_productos(iDgenerarPro,dataSearch,cantSlides,tope) {
 }
 
 
-function excute_carrusel_dom(cantSlides){
+function excute_carrusel_dom(iDgenerarPro,cantSlides){
 
-
-var simple = $('.owl-carousel');
+var simple = $('#'+iDgenerarPro+' .owl-carousel');
 simple.owlCarousel('destroy'); // destroyed
 simple.owlCarousel({
                 loop:true,
