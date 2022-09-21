@@ -26,15 +26,16 @@
                           <div class="price-wrap mt-2" >
 
                             <del class="price-old {{if precio_venta_minima == precio_oferta_maxima}} d-none hidedesc{{else}} showdesc d-block {{/if}}">
-                              <span class="simbol_moneda">S/ </span> ${precio_venta_minima}
+                              <span class="simbol_moneda">S/ </span> ${precio_venta_minima.toFixed(2)}
                             </del>
                            
-                            <span class="price">
-                              <span  class="simbol_moneda" >S/</span> ${precio_oferta_maxima}
+                            <span class="price {{if precio_venta_minima != precio_oferta_maxima}} d-none hidedesc   {{else}} showdesc d-block  {{/if}}">
+                              <span  class="simbol_moneda" >S/</span> ${precio_oferta_maxima.toFixed(2)}
                              </span>
 
-                            <span class="price_off"> </span>
-
+                            <span class="price_off {{if precio_venta_minima == precio_oferta_maxima}} d-none hidedesc{{else}} showdesc d-block {{/if}}""> 
+                            <span  class="simbol_moneda" >S/</span> ${precio_oferta_maxima.toFixed(2)}
+                          </span>
                           </div>
                         </div>
                         <a href="#" class="btn btn-block btn-primary d-none hidden" >Agregar al carrito</a>
